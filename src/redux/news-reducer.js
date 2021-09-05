@@ -21,10 +21,14 @@ let initialState = {
     switch (action.type) {
 
       case SET_NEWS:
+        //debugger;
         return {
           ...state, news: [...action.news]
         }
-
+        case TOGGLE_IS_FETCHING:
+          return {
+            ...state, isFetching: action.isFetching
+          }
         default:
           return state;
     }
@@ -46,9 +50,10 @@ let initialState = {
       
       dispatch(toggleIsFetching(true));
       newsAPI.getNews().then(data => {
-        debugger;
-        dispatch(toggleIsFetching(false));
+        //debugger;
+        
         dispatch(setNews(data));
+        dispatch(toggleIsFetching(false));
       })
     }
   };

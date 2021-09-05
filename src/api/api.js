@@ -6,7 +6,6 @@ const instance = axios.create({
 
 export const newsAPI = {
     getNews() {
-        let responseArray = [];
         return instance.get(`topstories.json?`).then(response => {
             let promises = [];
             for (let i = 0; i < 100; i++) {
@@ -14,6 +13,7 @@ export const newsAPI = {
             }
             return Promise.all(promises)
         }).then(responses => {
+            //debugger;
             return responses;
         })
 
@@ -21,7 +21,6 @@ export const newsAPI = {
 
     getCurrentNewsInfo(id) {
         return instance.get(`item/${id}.json?`).then(response => {
-            //debugger;
             return {
                 id: id,
                 title: response.data.title,

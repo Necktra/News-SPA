@@ -16,10 +16,10 @@ class NewsContainer extends React.Component {
     // }
 
     render() {
-        
+
         return (<>
         {this.props.isFetching ? <Preloader /> : null}
-        <News/>
+        <News news={this.props.news}/>
 
         </>)
     }
@@ -28,20 +28,12 @@ class NewsContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         news: state.newsPage.news,
-        // pageSize: state.usersPage.pageSize,
-        // totalUsersCount: state.usersPage.totalUsersCount,
-        // currentPage: state.usersPage.currentPage,
         isFetching: state.newsPage.isFetching,
-        // followingInProgress: state.usersPage.followingInProgress,
     }
 }
 
 export default connect(mapStateToProps,
     {
-        // follow,
-        // unfollow,
-        // setCurrentPage,
-        // toggleFollowingProgress,
          getNews,
     }
 )(NewsContainer);
