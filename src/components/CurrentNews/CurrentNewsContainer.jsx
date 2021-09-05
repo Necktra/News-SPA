@@ -1,25 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
-import News from "./News";
-import { getNews } from './../../redux/news-reducer';
+import News from "./CurrentNews";
+import { getNews } from '../../redux/news-reducer';
 // import Preloader from './../common/Preloader';
-import Preloader from './../common/Preloader';
+import Preloader from '../common/Preloader';
+import { withRouter } from "react-router-dom";
 
 class NewsContainer extends React.Component {
 
     componentDidMount() {
+        debugger;
         this.props.getNews();
     }
-
-    // onPageChanged = (pageNumber) => {
-    //     this.props.getUsers(pageNumber, this.props.pageSize);
-    // }
 
     render() {
         debugger;
         return (<>
-            {this.props.isFetching ? <Preloader /> : null}
-            <News news={this.props.news} />
+        {this.props.isFetching ? <Preloader /> : null}
+        <News news={this.props.news}/>
 
         </>)
     }
@@ -32,8 +30,10 @@ let mapStateToProps = (state) => {
     }
 }
 
+let WithUrlDataContainerComponent = withRouter(NewsContainer);
+
 export default connect(mapStateToProps,
     {
-        getNews,
+         getNews,
     }
-)(NewsContainer);
+)(WithUrlDataContainerComponent);

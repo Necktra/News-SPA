@@ -14,7 +14,9 @@ export const newsAPI = {
             return Promise.all(promises)
         }).then(responses => {
             //debugger;
-            return responses;
+           return responses.map(news => {return news.data});
+            //debugger;
+            //return responses;
         })
 
     },
