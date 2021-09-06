@@ -6,7 +6,7 @@ const instance = axios.create({
 
 export const newsAPI = {
     getNews() {
-        return instance.get(`topstories.json?`).then(response => {
+        return instance.get(`newstories.json?`).then(response => {
             let promises = [];
             for (let i = 0; i < 100; i++) {
                 promises.push(instance.get(`item/${response.data[i]}.json?`))
@@ -23,14 +23,16 @@ export const newsAPI = {
 
     getCurrentNewsInfo(id) {
         return instance.get(`item/${id}.json?`).then(response => {
-            return {
-                id: id,
-                title: response.data.title,
-                score: response.data.score,
-                author: response.data.by,
-                date: response.data.time,
+            //debugger;
+            return response.data;
+            //  {
+            //     id: id,
+            //     title: response.data.title,
+            //     score: response.data.score,
+            //     author: response.data.by,
+            //     date: response.data.time,
 
-            }
+            // }
         });
     }
 }

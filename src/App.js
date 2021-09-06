@@ -13,7 +13,8 @@ function App() {
      {/* <NewsContainer /> */}
 
      <Route exact path={"/"} render={ () => <NewsContainer/>} />
-     <Route path="/news/:newsId" render={ () => <CurrentNewsContainer/>} />
+     {/* <Route path="/news/:newsId" render={ () => <CurrentNewsContainer/>} /> */}
+     <Route path="/news/:newsId" render={ (props) => <CurrentNewsContainer props={props}/>} />
 {/* <Route path="#home" render={ () => <NewsContainer/>} /> */}
      {/* <Route path="/mm" render={ () => <CurrentNewsContainer/>} /> */}
 
