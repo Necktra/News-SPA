@@ -16,17 +16,17 @@ class CommentsContainer extends React.Component {
 
     render() {
 
-     //getComments(this.props.parentComments);   
+        //getComments(this.props.parentComments);   
         //debugger;
         return (<>
             {this.props.isFetching ? <Preloader /> : null}
 
-        {this.props.currentCommentsBranch.map(comment => {
-        //    return <Comments comments={this.props.parentComments}/>
-        return <Comments comments={comment} key={comment}/>
-        })}
-
-            {/* <Comments comments={this.props.parentComments} /> */}
+            {this.props.currentCommentsBranch.map(comment => {
+                return (<Comments comments={comment} key={comment} getComments={this.props.getComments}/>
+                    
+                    
+                    )
+            })}
 
         </>)
     }

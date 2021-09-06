@@ -4,6 +4,7 @@ import {
 
 const SET_COMMENTS = 'SET_COMMENTS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+//const TOGGLE_SHOW_COMMENTS_IN_PROGRESS = 'TOGGLE_SHOW_COMMENTS_IN_PROGRESS';
 
 let initialState = {
     //parentComments: [],
@@ -11,7 +12,7 @@ let initialState = {
     //pageSize: 10,
     //totalUsersCount: 0,
     isFetching: false,
-    isOpen: false,
+    openComments: [],
   };
 
   
@@ -21,7 +22,7 @@ let initialState = {
       case SET_COMMENTS:
         debugger;
         return {
-          ...state, currentCommentsBranch: [...action.data]
+          ...state, currentCommentsBranch: [...state.currentCommentsBranch, ...action.data]
         }
         case TOGGLE_IS_FETCHING:
           return {
@@ -62,7 +63,7 @@ let initialState = {
       
       dispatch(toggleIsFetching(true));
       newsAPI.getCommentInfo(id).then(data => {
-       debugger;
+       //debugger;
         dispatch(setComments(data));
        dispatch(toggleIsFetching(false));
       })
