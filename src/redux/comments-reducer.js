@@ -4,6 +4,8 @@ import {
 
 const SET_COMMENTS = 'SET_COMMENTS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+
+const SET_NESTED_COMMENTS = 'SET_NESTED_COMMENTS';
 //const TOGGLE_SHOW_COMMENTS_IN_PROGRESS = 'TOGGLE_SHOW_COMMENTS_IN_PROGRESS';
 
 let initialState = {
@@ -13,6 +15,7 @@ let initialState = {
     //totalUsersCount: 0,
     isFetching: false,
     openComments: [],
+    openNestedComments: [],
   };
 
   
@@ -20,10 +23,22 @@ let initialState = {
     switch (action.type) {
 
       case SET_COMMENTS:
-        debugger;
+        //debugger;
         return {
           ...state, currentCommentsBranch: [...state.currentCommentsBranch, ...action.data]
         }
+
+        case SET_NESTED_COMMENTS:
+          //debugger;
+          return {
+            // ...state, openNestedComments: [...state.openNestedComments, ...action.data]
+            ...state, openNestedComments: [...state.openNestedComments, ...action.data.map(el => {
+
+              return {parentId: el.parent, nestComment: el}
+            })
+          ]
+          }
+
         case TOGGLE_IS_FETCHING:
           return {
             ...state, isFetching: action.isFetching
@@ -42,6 +57,11 @@ let initialState = {
   export const toggleIsFetching = (isFetching) => ({
     type: TOGGLE_IS_FETCHING,
     isFetching
+  });
+
+  export const setNestedComments = (data) => ({
+    type: SET_NESTED_COMMENTS,
+    data
   });
 
   // export const getComments = (data) => {
@@ -70,5 +90,17 @@ let initialState = {
     }
   };
 
+  export const getNestedComments = (id) => {
+    //debugger;
+    return (dispatch) => {
+      
+      dispatch(toggleIsFetching(true));
+      newsAPI.getCommentInfo(id).then(data => {
+       //debugger;
+        dispatch(setNestedComments(data));
+       dispatch(toggleIsFetching(false));
+      })
+    }
+  };
 
   export default commentsReducer;

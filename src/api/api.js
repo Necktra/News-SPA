@@ -32,7 +32,7 @@ export const newsAPI = {
         //debugger;
         return instance.get(`item/${id}.json?`).then(response => {
             //debugger;
-
+if (!response.data.kids){return[]}
             let promises = [];
             for (let i = 0; i < response.data.kids.length; i++) {
                 promises.push(instance.get(`item/${response.data.kids[i]}.json?`))

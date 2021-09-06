@@ -16,6 +16,7 @@ class CurrentNewsContainer extends React.Component {
 
     render() {
         //debugger;
+        
         return (<>
         {this.props.isFetching ? <Preloader /> : null}
         <CurrentNews news={this.props.currentNews}/>

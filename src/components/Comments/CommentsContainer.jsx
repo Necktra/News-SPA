@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import Comments from "./Comments";
-import { getComments } from '../../redux/comments-reducer';
+// import { getComments } from '../../redux/comments-reducer';
+import { getNestedComments, getComments } from '../../redux/comments-reducer';
 // import Preloader from './../common/Preloader';
 import Preloader from '../common/Preloader';
 
@@ -14,15 +15,24 @@ class CommentsContainer extends React.Component {
     }
 
 
-    render() {
+    render () {
 
         //getComments(this.props.parentComments);   
-        //debugger;
+       
         return (<>
             {this.props.isFetching ? <Preloader /> : null}
 
             {this.props.currentCommentsBranch.map(comment => {
-                return (<Comments comments={comment} key={comment} getComments={this.props.getComments}/>
+
+            // debugger;    
+                return (<Comments comments={comment} key={comment} 
+                    //getComments={this.props.getComments}
+                    getNestedComments={this.props.getNestedComments}
+                    openNestedComments={this.props.openNestedComments.filter(el => {
+                       // debugger;
+                        return el.parentId === comment.id})}
+                        //return el.nestComment.id === comment.id})}
+                    />
                     
                     
                     )
@@ -30,6 +40,9 @@ class CommentsContainer extends React.Component {
 
         </>)
     }
+
+
+
 }
 
 let mapStateToProps = (state) => {
@@ -37,6 +50,7 @@ let mapStateToProps = (state) => {
         //parentComments: state.currentNewsPage.parentComments,
         isFetching: state.comments.isFetching,
         currentCommentsBranch: state.comments.currentCommentsBranch,
+        openNestedComments: state.comments.openNestedComments,
         //currentNews: state.currentNewsPage.currentNews,
     }
 }
@@ -44,5 +58,6 @@ let mapStateToProps = (state) => {
 export default connect(mapStateToProps,
     {
         getComments,
+        getNestedComments,
     }
 )(CommentsContainer);
