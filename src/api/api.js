@@ -25,14 +25,14 @@ export const newsAPI = {
         return instance.get(`item/${id}.json?`).then(response => {
             //debugger;
             return response.data;
-            //  {
-            //     id: id,
-            //     title: response.data.title,
-            //     score: response.data.score,
-            //     author: response.data.by,
-            //     date: response.data.time,
+        });
+    },
 
-            // }
+    getCommentInfo(id) {
+        return instance.get(`item/${id}.json?`).then(response => {
+            //debugger;
+            return response.data;
         });
     }
+
 }

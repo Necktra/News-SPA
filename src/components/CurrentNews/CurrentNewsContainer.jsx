@@ -5,8 +5,9 @@ import { getCurrentNews } from '../../redux/currentNews-reducer';
 // import Preloader from './../common/Preloader';
 import Preloader from '../common/Preloader';
 import { withRouter } from "react-router-dom";
+import CommentsContainer from "../Comments/CommentsContainer";
 
-class CurrntNewsContainer extends React.Component {
+class CurrentNewsContainer extends React.Component {
 
     componentDidMount() {
         //debugger;
@@ -14,11 +15,19 @@ class CurrntNewsContainer extends React.Component {
     }
 
     render() {
-        debugger;
+        //debugger;
         return (<>
         {this.props.isFetching ? <Preloader /> : null}
         <CurrentNews news={this.props.currentNews}/>
 
+        <CommentsContainer/>
+        {/* {this.props.parentComments.map(comment => {
+           return <Comments comment={comment}/>
+        })} */}
+
+
+
+        
         </>)
     }
 }
@@ -26,6 +35,7 @@ class CurrntNewsContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         currentNews: state.currentNewsPage.currentNews,
+        //parentComments: state.currentNewsPage.parentComments,
         isFetching: state.currentNewsPage.isFetching,
     }
 }
@@ -36,4 +46,4 @@ export default connect(mapStateToProps,
     {
          getCurrentNews,
     }
-)(CurrntNewsContainer);
+)(CurrentNewsContainer);

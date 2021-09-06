@@ -3,11 +3,13 @@ import {
 } from "../api/api";
 
 const SET_CURRENT_NEWS = 'SET_CURRENT_NEWS';
+//const SET_COMMENT_INFO = 'SET_COMMENT_INFO';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
     currentNews: {},
-
+    parentComments: [],
+    //currentCommentsBranch: [],
 
     // news: [],
     // pageSize: 10,
@@ -23,8 +25,15 @@ let initialState = {
       case SET_CURRENT_NEWS:
         //debugger;
         return {
-          ...state, currentNews: action.data,
+          ...state, currentNews: action.data, parentComments: [...action.data.kids]
         }
+
+        // case SET_COMMENT_INFO:
+        //   //debugger;
+        //   return {
+        //     ...state, parentComments: [...action.data.kids]
+        //   }
+
         case TOGGLE_IS_FETCHING:
           return {
             ...state, isFetching: action.isFetching
@@ -40,6 +49,11 @@ let initialState = {
     data
   });
 
+  // export const setCommentInfo = (data) => ({
+  //   type: SET_COMMENT_INFO,
+  //   data
+  // });
+
   export const toggleIsFetching = (isFetching) => ({
     type: TOGGLE_IS_FETCHING,
     isFetching
@@ -51,8 +65,8 @@ let initialState = {
       dispatch(toggleIsFetching(true));
       newsAPI.getCurrentNewsInfo(id).then(data => {
         //debugger;
-        
         dispatch(setCurrentNews(data));
+        //dispatch(setCommentInfo(data));
         dispatch(toggleIsFetching(false));
       })
     }
