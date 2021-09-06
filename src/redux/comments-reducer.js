@@ -6,7 +6,7 @@ const SET_COMMENTS = 'SET_COMMENTS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
-    parentComments: [],
+    //parentComments: [],
     currentCommentsBranch: [],
     //pageSize: 10,
     //totalUsersCount: 0,
@@ -21,7 +21,7 @@ let initialState = {
       case SET_COMMENTS:
         debugger;
         return {
-          ...state, parentComments: [...action.parentComments]
+          ...state, currentCommentsBranch: [...action.data]
         }
         case TOGGLE_IS_FETCHING:
           return {
@@ -33,9 +33,9 @@ let initialState = {
   }
 
 
-  export const setComments = (comments) => ({
+  export const setComments = (data) => ({
     type: SET_COMMENTS,
-    comments
+    data
   });
 
   export const toggleIsFetching = (isFetching) => ({
@@ -46,6 +46,7 @@ let initialState = {
   // export const getComments = (data) => {
   //   debugger;
   //   return (dispatch) => {
+  //     debugger;
   //     //dispatch(toggleIsFetching(true));
   //     //newsAPI.getNews().then(data => {
        
@@ -56,11 +57,12 @@ let initialState = {
   // };
 
   export const getComments = (id) => {
-    debugger;
+    //debugger;
     return (dispatch) => {
+      
       dispatch(toggleIsFetching(true));
       newsAPI.getCommentInfo(id).then(data => {
-       
+       debugger;
         dispatch(setComments(data));
        dispatch(toggleIsFetching(false));
       })

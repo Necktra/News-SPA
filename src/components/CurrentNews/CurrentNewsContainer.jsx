@@ -20,7 +20,7 @@ class CurrentNewsContainer extends React.Component {
         {this.props.isFetching ? <Preloader /> : null}
         <CurrentNews news={this.props.currentNews}/>
 
-        <CommentsContainer/>
+        {/* <CommentsContainer/> */}
         {/* {this.props.parentComments.map(comment => {
            return <Comments comment={comment}/>
         })} */}

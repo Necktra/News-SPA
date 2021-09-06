@@ -8,7 +8,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
     currentNews: {},
-    parentComments: [],
+    //parentComments: [],
     //currentCommentsBranch: [],
 
     // news: [],
@@ -25,7 +25,8 @@ let initialState = {
       case SET_CURRENT_NEWS:
         //debugger;
         return {
-          ...state, currentNews: action.data, parentComments: [...action.data.kids]
+          ...state, currentNews: action.data,
+          // parentComments: [...action.data.kids]
         }
 
         // case SET_COMMENT_INFO:
@@ -60,8 +61,9 @@ let initialState = {
   });
 
   export const getCurrentNews = (id) => {
+   // debugger;
     return (dispatch) => {
-      
+    //debugger;  
       dispatch(toggleIsFetching(true));
       newsAPI.getCurrentNewsInfo(id).then(data => {
         //debugger;

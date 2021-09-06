@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NewsContainer from './components/News/NewsContainer';
 import CurrentNewsContainer from './components/CurrentNews/CurrentNewsContainer';
+import CommentsContainer from './components/Comments/CommentsContainer';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
 
      <Route exact path={"/"} render={ () => <NewsContainer/>} />
      {/* <Route path="/news/:newsId" render={ () => <CurrentNewsContainer/>} /> */}
-     <Route path="/news/:newsId" render={ (props) => <CurrentNewsContainer props={props}/>} />
+     <Route path="/news/:newsId" render={ (props) => {return <><CurrentNewsContainer props={props}/>
+     <CommentsContainer props={props}/> </>} } />
 {/* <Route path="#home" render={ () => <NewsContainer/>} /> */}
      {/* <Route path="/mm" render={ () => <CurrentNewsContainer/>} /> */}
 

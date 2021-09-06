@@ -29,9 +29,26 @@ export const newsAPI = {
     },
 
     getCommentInfo(id) {
+        //debugger;
         return instance.get(`item/${id}.json?`).then(response => {
             //debugger;
-            return response.data;
+
+            let promises = [];
+            for (let i = 0; i < response.data.kids.length; i++) {
+                promises.push(instance.get(`item/${response.data.kids[i]}.json?`))
+            }
+            return Promise.all(promises)
+
+
+            
+        }).then(responses => {
+            //debugger;
+
+          // return responses.map(news => {return news.data});
+          return responses.map(comments => {return comments.data});
+//return responses;
+            //debugger;
+            //return responses;
         });
     }
 
