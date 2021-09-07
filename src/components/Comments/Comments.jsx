@@ -20,9 +20,17 @@ let Comments = (props) => {
                 {
                     props.comments.kids &&
                     <button className={classes.btn} disabled={props.openNestedComments.some(id => { return (id.parentId === props.comments.id) })}
+
+
+                    
                         idBtn={props.comments.id} onClick={() => {
                             props.getNestedComments(props.comments.id);
                         }}>Show replies</button>
+
+                        // <button className={classes.btn} display={(props.openNestedComments.some(id => { return (id.parentId === props.comments.id) })) ? "none" : "inline-block"}
+                        // idBtn={props.comments.id} onClick={() => {
+                        //     props.getNestedComments(props.comments.id);
+                        // }}>Show replies</button>
                 }
 
 

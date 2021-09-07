@@ -4,15 +4,10 @@ import {
 
 const SET_COMMENTS = 'SET_COMMENTS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-
 const SET_NESTED_COMMENTS = 'SET_NESTED_COMMENTS';
-//const TOGGLE_SHOW_COMMENTS_IN_PROGRESS = 'TOGGLE_SHOW_COMMENTS_IN_PROGRESS';
 
 let initialState = {
-    //parentComments: [],
     currentCommentsBranch: [],
-    //pageSize: 10,
-    //totalUsersCount: 0,
     isFetching: false,
     openComments: [],
     openNestedComments: [],

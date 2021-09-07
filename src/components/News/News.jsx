@@ -13,25 +13,25 @@ let News = (props) => {
         {props.news.map(news => {
             //debugger;
             return news && (<div key={news.id}>
-                
 
 
-                    <Card className={classes.mainWrapper}>
-<NavLink to={"/news/" + news.id} className={classes.linkDecoration}>
+
+                <Card className={classes.mainWrapper}>
+                    <NavLink to={"/news/" + news.id} className={classes.linkDecoration}>
                         <Card.Header className={classes.commentTitle}>
-                                {news.score} points by {news.by} {transformContentDate(news.time)}
+                            {news.score} points by {news.by} {transformContentDate(news.time)}
                         </Card.Header>
                         <Card.Body className={classes.newsTitleWrap}>
                             <Card.Title>{news.title}</Card.Title>
                         </Card.Body>
 
-                    </NavLink>     
-                    </Card>
-               
+                    </NavLink>
+                </Card>
 
 
 
-                    {/* <Card className="text-center">
+
+                {/* <Card className="text-center">
                         <Card.Body>
                             <Card.Title>{news.title}</Card.Title>
                         </Card.Body>
