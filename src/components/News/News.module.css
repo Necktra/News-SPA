@@ -1,0 +1,27 @@
+.newsTitleWrap {
+    color: black;
+    padding: 5px;
+    font-size: 5pt;
+    max-width: 1320px;
+}
+
+.commentTitle {
+    color: black;
+
+    padding: 5px;
+    font-size: medium;
+    background-color: rgb(173, 173, 173);
+    max-width: 1320px;
+}
+
+
+.mainWrapper {
+    /* text-decoration: none; */
+    margin: 15px auto;
+    max-width: 1320px;
+    border: 1px solid black;
+}
+
+.linkDecoration {
+    text-decoration: none;
+}

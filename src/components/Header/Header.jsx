@@ -6,18 +6,20 @@ const Header = (props) => {
 
     return (  
     // <div className={classes.wrap}>
-    <Navbar bg="dark" variant="dark">
-    <Container>
+    <Navbar bg="dark" variant="dark" className={classes.navbarWrapper}>
+    <Container className={classes.logoContainer}>
+
     {/* <Navbar.Brand href="#home">Hacker news</Navbar.Brand> */}
-    <Navbar.Brand href="/">Hacker news</Navbar.Brand>
-    <Nav className="me-auto">
+    <Navbar.Brand href="/"><span className={classes.logo}>HACKER NEWS</span></Navbar.Brand>
+    {/* <Nav className="me-auto"> */}
       {/* <Nav.Link href="#home">Home</Nav.Link> */}
       {/* <Nav.Link href="#features">Features</Nav.Link> */}
       {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
-    </Nav>
+    {/* </Nav> */}
+    
     </Container>
   </Navbar>
-// </div>
+ //</div>
     )
 }
 

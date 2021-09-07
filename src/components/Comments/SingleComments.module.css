@@ -3,10 +3,10 @@
   /* background-color: violet; */
   /* width: 100px; */
   /* margin-left: 50px; */
-  margin: 5px 5px 5px 50px
+  margin: 5px 5px 5px 50px;
 }
 
-.wrap2 {
+.commentsWrapper {
   /* grid-area: h; */
   /* background-color: violet; */
   /* width: 100px; */
@@ -16,28 +16,49 @@
   /* margin-left: 500px; */
 }
 
-.btn {
-  /* grid-area: h; */
-  /* background-color: violet; */
-  /* width: 100px; */
-  /* margin-left: 50px; */
+/* .btn {
   width: 100px;
   text-align: center;
   margin: 0 auto;
+} */
+
+.btn {
+  min-width: 100px;
+  /* border-radius: 5px; */
+  text-align: center;
+  margin: 0 auto;
+  transition-duration: 0.4s;
 }
+
+.btn:hover {
+  background-color: rgb(143, 143, 143); 
+  color: white;
+}
+
+.commentName {
+  color:black;
+  font-weight: bold;
+  font-size: large;
+}
+
 
 .commentTitleWrap {
   /* height: 40px; */
   padding: 5px;
-  font-size: 5pt;
+  /* font-size: 5pt; */
   background-color: rgb(230, 227, 227);
 }
 
 .commentTitle {
   font-size: medium;
+  color:black
   /* background-color: rgb(230, 227, 227); */
 }
 
 /* .commentContent {
   background-color: red;
 } */
+
+.card {
+  background-color: red;
+}
