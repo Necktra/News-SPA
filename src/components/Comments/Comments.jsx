@@ -42,6 +42,22 @@ let Comments = (props) => {
                     }}>Show more</button>
             } */}
 
+{/* { (props.openNestedComments) ? 
+                props.openNestedComments.map(el => {
+                    return (
+                        <div className={classes.wrap}>
+                            <SingleCommentsContainer comment={el.nestComment} comId={el.nestComment.id} />
+                        </div>
+                    )
+                }
+                )
+                : (<div>LFl</div>)
+
+} */}
+
+{/* { (props.openNestedComments.length ===0) && <div> ghgh </div>} */}
+
+
                 {props.openNestedComments.map(el => {
                     return (
                         <div className={classes.wrap}>
@@ -49,8 +65,6 @@ let Comments = (props) => {
                         </div>
                     )
                 }
-
-
                 )}
             </Card.Footer>
 

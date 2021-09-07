@@ -17,7 +17,7 @@ let CurrentNews = (props) => {
             <Card.Body className={classes.newsTitleWrap}>
                 <Card.Title>{props.news.title}</Card.Title>
                 <Card.Text>
-                    <div dangerouslySetInnerHTML={{ __html: props.news.text }} />
+                    <div className={classes.newsText} dangerouslySetInnerHTML={{ __html: props.news.text }} />
 
                     {/* <a ><button className={classes.btn}>Read in source</button></a> */}
                     {/* <a>Read in source</a> */}
