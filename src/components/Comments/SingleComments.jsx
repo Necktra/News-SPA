@@ -3,7 +3,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Link, NavLink } from 'react-router-dom';
 import CommentsContainer from "./CommentsContainer";
-
+import classes from './SingleComments.module.css';
 
 let SingleComments = (props) => {
 
@@ -13,8 +13,8 @@ let SingleComments = (props) => {
     //     }
     // }
 
-    //debugger;
-    return <div>
+    debugger;
+    return <div className={classes.wrap}>
         <Card className="text-center">
             <Card.Body>
                 <Card.Title>by {props.comments.by} time: {props.comments.time}</Card.Title>
@@ -28,10 +28,6 @@ let SingleComments = (props) => {
         </Card>
 
 
-
-        {/* {props.comments.kids && (props.comments.kids.map(comment => {
-                return <CommentsContainer />
-            }))} */}
 
 
     </div>
