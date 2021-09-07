@@ -4,12 +4,13 @@ import {
 
 const SET_NEWS = 'SET_NEWS';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const UPDATE_REFRESH_TIMEOUT = 'UPDATE_REFRESH_TIMEOUT';
 
 let initialState = {
     news: [],
     pageSize: 10,
     totalUsersCount: 0,
-    currentPage: 1,
+    timer: 59,
     // totalUsersCount: 0,
     // currentPage: 1,
      isFetching: false,
@@ -29,6 +30,11 @@ let initialState = {
           return {
             ...state, isFetching: action.isFetching
           }
+          case UPDATE_REFRESH_TIMEOUT:
+              debugger;
+            return {
+              ...state, timer: action.timer
+            }
         default:
           return state;
     }
@@ -40,10 +46,28 @@ let initialState = {
     news
   });
 
+  export const setRefreshTimeout = (timer) => ({
+    type: UPDATE_REFRESH_TIMEOUT,
+    timer
+  });
+
   export const toggleIsFetching = (isFetching) => ({
     type: TOGGLE_IS_FETCHING,
     isFetching
   });
+
+  export const getTimeout = (timer) => {
+    return (dispatch) => {
+        dispatch(setRefreshTimeout(timer));
+    //   dispatch(toggleIsFetching(true));
+    //   newsAPI.getNews().then(data => {
+    //     //debugger;
+        
+    //     dispatch(setNews(data));
+    //     dispatch(toggleIsFetching(false));
+    //   })
+    }
+  };
 
   export const getNews = () => {
     return (dispatch) => {

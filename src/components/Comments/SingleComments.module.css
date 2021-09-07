@@ -1,6 +1,43 @@
 .wrap {
-    /* grid-area: h; */
-    /* background-color: violet; */
-    /* width: 100px; */
-margin-left: 50px;
-  }
+  /* grid-area: h; */
+  /* background-color: violet; */
+  /* width: 100px; */
+  /* margin-left: 50px; */
+  margin: 5px 5px 5px 50px
+}
+
+.wrap2 {
+  /* grid-area: h; */
+  /* background-color: violet; */
+  /* width: 100px; */
+  margin: 5px auto;
+  max-width: 1100px;
+  border: 1px solid black;
+  /* margin-left: 500px; */
+}
+
+.btn {
+  /* grid-area: h; */
+  /* background-color: violet; */
+  /* width: 100px; */
+  /* margin-left: 50px; */
+  width: 100px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.commentTitleWrap {
+  /* height: 40px; */
+  padding: 5px;
+  font-size: 5pt;
+  background-color: rgb(230, 227, 227);
+}
+
+.commentTitle {
+  font-size: medium;
+  /* background-color: rgb(230, 227, 227); */
+}
+
+/* .commentContent {
+  background-color: red;
+} */

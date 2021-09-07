@@ -1,40 +1,24 @@
 import { Button } from "bootstrap";
 import React from "react";
 import { Card } from "react-bootstrap";
+import { transformContentDate } from "../../services/transformContentDate";
 
 
 let CurrentNews = (props) => {
     //debugger;
-    return <div>Текущая новость
+    return <div>
 
-
-<Card>
-  <Card.Header>{props.news.score} points by {props.news.by} time: {props.news.time}</Card.Header>
-  <Card.Body>
-    <Card.Title>{props.news.title}</Card.Title>
-    <Card.Text>
-    {props.news.text}
-    </Card.Text>
-    {/* <Button variant="primary">Go somewhere</Button> */}
-  </Card.Body>
-</Card>
-
-        {/* {props.news.map(news => {
-            //    debugger;
-            return (<div key={news.id}>
-                <Card className="text-center">
-                    <Card.Body>
-                        <Card.Title>{news.title}</Card.Title>
-                    </Card.Body>
-                    <Card.Footer className="text-muted">{news.score} points by {news.by} time: {news.time}</Card.Footer>
-                </Card>
-
-
-
-
-            </div>)
-        })} */}
-
+        <Card>
+            <Card.Header>{props.news.score} points by {props.news.by} time: {transformContentDate(props.news.time)}</Card.Header>
+            <Card.Body>
+                <Card.Title>{props.news.title}</Card.Title>
+                <Card.Text>
+                    <div dangerouslySetInnerHTML={{ __html: props.news.text }} />
+                    {/* {props.news.text} */}
+                </Card.Text>
+                {/* <Button variant="primary">Go somewhere</Button> */}
+            </Card.Body>
+        </Card>
 
     </div>
 }

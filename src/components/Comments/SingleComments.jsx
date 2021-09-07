@@ -1,38 +1,29 @@
-import { Button } from "bootstrap";
-import React from "react";
-import { Card } from "react-bootstrap";
-import { Link, NavLink } from 'react-router-dom';
-import CommentsContainer from "./CommentsContainer";
-import classes from './SingleComments.module.css';
+// import { Button } from "bootstrap";
+// import React from "react";
+// import { Card } from "react-bootstrap";
+// import { Link, NavLink } from 'react-router-dom';
+// import CommentsContainer from "./CommentsContainer";
+// import classes from './SingleComments.module.css';
 
-let SingleComments = (props) => {
+// let SingleComments = (props) => {
 
-    // {
-    //     if (props.openNestedComments.length > 0) {
-    //         debugger;
-    //     }
-    // }
+//     debugger;
+//     return <div className={classes.wrap}>
+//         <Card className="text-center">
+//             <Card.Body>
+//                 <Card.Title>by {props.comments.by} time: {props.comments.time}</Card.Title>
+//             </Card.Body>
+//             <Card.Footer className="text-muted">{props.comments.text}</Card.Footer>
 
-    debugger;
-    return <div className={classes.wrap}>
-        <Card className="text-center">
-            <Card.Body>
-                <Card.Title>by {props.comments.by} time: {props.comments.time}</Card.Title>
-            </Card.Body>
-            <Card.Footer className="text-muted">{props.comments.text}</Card.Footer>
+//             {<button onClick={() => {
+//                 props.getNestedComments(props.comments.id);
+//             }}>Show more</button>}
 
-            {<button onClick={() => {
-                props.getNestedComments(props.comments.id);
-            }}>Show more</button>}
+//         </Card>
 
-        </Card>
+//     </div>
+// }
 
 
 
-
-    </div>
-}
-
-
-
-export default SingleComments;
+// export default SingleComments;
