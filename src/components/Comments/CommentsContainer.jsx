@@ -34,7 +34,6 @@ class CommentsContainer extends React.Component {
                 <div className={classes.commentsWrapper}>
                     <Card className="text-right">
                         <Card.Body className={classes.commentTitleWrap}>
-
                             <Card.Title className={classes.commentTitle}>
                                 No comments yet
                             </Card.Title>
@@ -46,6 +45,7 @@ class CommentsContainer extends React.Component {
             {this.props.currentCommentsBranch.map(comment => {
                 return (<Comments comments={comment} key={comment.id}
                     getNestedComments={this.props.getNestedComments}
+                    isFetching={this.isFetching}
                     openNestedComments={this.props.openNestedComments.filter(el => {
                         return el.parentId === comment.id
                     })} />

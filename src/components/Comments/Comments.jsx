@@ -24,7 +24,7 @@ let Comments = (props) => {
             <Card.Footer className="text-muted">
                 <div dangerouslySetInnerHTML={{ __html: props.comments.text }} />
                 {props.comments.kids &&
-                    <button className={classes.btn} disabled={props.openNestedComments.some(id => { return (id.parentId === props.comments.id) })}
+                    <button className={classes.btn} disabled={props.openNestedComments.some(id => { return (id.parentId === props.comments.id) }) || props.nestIsFetching}
                         idbtn={props.comments.id} onClick={() => {
                             props.getNestedComments(props.comments.id);
                         }}>Show replies</button>
