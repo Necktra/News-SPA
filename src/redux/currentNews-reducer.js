@@ -4,7 +4,7 @@ import {
 
 const SET_CURRENT_NEWS = 'SET_CURRENT_NEWS';
 //const SET_COMMENT_INFO = 'SET_COMMENT_INFO';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FETCHING_CURRENT_NEWS = 'TOGGLE_IS_FETCHING_CURRENT_NEWS';
 
 let initialState = {
     currentNews: {},
@@ -23,7 +23,6 @@ let initialState = {
     switch (action.type) {
 
       case SET_CURRENT_NEWS:
-        //debugger;
         return {
           ...state, currentNews: action.data,
           // parentComments: [...action.data.kids]
@@ -35,7 +34,7 @@ let initialState = {
         //     ...state, parentComments: [...action.data.kids]
         //   }
 
-        case TOGGLE_IS_FETCHING:
+        case TOGGLE_IS_FETCHING_CURRENT_NEWS:
           return {
             ...state, isFetching: action.isFetching
           }
@@ -56,7 +55,7 @@ let initialState = {
   // });
 
   export const toggleIsFetching = (isFetching) => ({
-    type: TOGGLE_IS_FETCHING,
+    type: TOGGLE_IS_FETCHING_CURRENT_NEWS,
     isFetching
   });
 

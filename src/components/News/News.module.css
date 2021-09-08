@@ -28,3 +28,18 @@
 .linkDecoration {
     text-decoration: none;
 }
+
+.buttonWrapper {
+    margin: 15px auto;
+    max-width: 1320px;
+}
+
+.buttonWrapper :hover {
+    background-color: rgb(128, 126, 126);
+}
+
+.buttonStyle {
+    min-width: 150px;
+    border-radius: 4px;
+    transition-duration: 0.3s;
+}

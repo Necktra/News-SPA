@@ -46,23 +46,6 @@ let Comments = (props) => {
                 }
 
 
-
-                {/* { (props.openNestedComments) ? 
-                props.openNestedComments.map(el => {
-                    return (
-                        <div className={classes.wrap}>
-                            <SingleCommentsContainer comment={el.nestComment} comId={el.nestComment.id} />
-                        </div>
-                    )
-                }
-                )
-                : (<div>LFl</div>)
-
-} */}
-
-                {/* { (!props.openNestedComments) && <div> ghgggggggggggh </div>} */}
-
-
                 {props.openNestedComments.map(el => {
                     return (
                         <div className={classes.wrap}>

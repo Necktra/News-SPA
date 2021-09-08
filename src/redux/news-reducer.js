@@ -3,7 +3,7 @@ import {
 } from "../api/api";
 
 const SET_NEWS = 'SET_NEWS';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FETCHING_NEWS = 'TOGGLE_IS_FETCHING_NEWS';
 const UPDATE_REFRESH_TIMEOUT = 'UPDATE_REFRESH_TIMEOUT';
 
 let initialState = {
@@ -22,16 +22,14 @@ let initialState = {
     switch (action.type) {
 
       case SET_NEWS:
-        //debugger;
         return {
           ...state, news: [...action.news]
         }
-        case TOGGLE_IS_FETCHING:
+        case TOGGLE_IS_FETCHING_NEWS:
           return {
             ...state, isFetching: action.isFetching
           }
           case UPDATE_REFRESH_TIMEOUT:
-              debugger;
             return {
               ...state, timer: action.timer
             }
@@ -52,7 +50,7 @@ let initialState = {
   });
 
   export const toggleIsFetching = (isFetching) => ({
-    type: TOGGLE_IS_FETCHING,
+    type: TOGGLE_IS_FETCHING_NEWS,
     isFetching
   });
 

@@ -3,7 +3,7 @@ import {
 } from "../api/api";
 
 const SET_COMMENTS = 'SET_COMMENTS';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FETCHING_COMMENT = 'TOGGLE_IS_FETCHING_COMMENT';
 const SET_NESTED_COMMENTS = 'SET_NESTED_COMMENTS';
 
 let initialState = {
@@ -18,23 +18,23 @@ let initialState = {
     switch (action.type) {
 
       case SET_COMMENTS:
-        //debugger;
+      //debugger;
         return {
-          ...state, currentCommentsBranch: [...state.currentCommentsBranch, ...action.data]
+          // ...state, currentCommentsBranch: [...state.currentCommentsBranch, ...action.data]
+           ...state, currentCommentsBranch: [...action.data]
+
         }
 
         case SET_NESTED_COMMENTS:
-          //debugger;
           return {
             // ...state, openNestedComments: [...state.openNestedComments, ...action.data]
             ...state, openNestedComments: [...state.openNestedComments, ...action.data.map(el => {
-
               return {parentId: el.parent, nestComment: el}
             })
           ]
           }
 
-        case TOGGLE_IS_FETCHING:
+        case TOGGLE_IS_FETCHING_COMMENT:
           return {
             ...state, isFetching: action.isFetching
           }
@@ -50,7 +50,7 @@ let initialState = {
   });
 
   export const toggleIsFetching = (isFetching) => ({
-    type: TOGGLE_IS_FETCHING,
+    type: TOGGLE_IS_FETCHING_COMMENT,
     isFetching
   });
 

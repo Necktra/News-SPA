@@ -2,9 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import SingleComments from "./Comments";
 // import { getComments } from '../../redux/comments-reducer';
-import { getNestedComments, getComments } from '../../redux/comments-reducer';
-// import Preloader from './../common/Preloader';
-import Preloader from '../common/Preloader';
+import { getNestedComments } from '../../redux/comments-reducer';
 
 class SingleCommentsContainer extends React.Component {
 
