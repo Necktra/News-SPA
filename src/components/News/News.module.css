@@ -12,14 +12,17 @@
     font-size: medium;
     background-color: rgb(173, 173, 173);
     max-width: 1320px;
+    transition-duration: 0.3s;
 }
 
-
 .mainWrapper {
-    /* text-decoration: none; */
     margin: 15px auto;
     max-width: 1320px;
     border: 1px solid black;
+}
+
+.mainWrapper:hover .commentTitle {
+    background-color: rgb(128, 126, 126);
 }
 
 .linkDecoration {
