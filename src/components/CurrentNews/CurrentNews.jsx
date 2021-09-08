@@ -11,7 +11,7 @@ let CurrentNews = (props) => {
         <Card className={classes.mainWrapper}>
             <Card.Header className={classes.commentTitle}>
 
-                    {props.news.score} points by <span className={classes.newsCreatorName}>{props.news.by}</span> {transformContentDate(props.news.time)}
+                {props.news.score} points by <span className={classes.newsCreatorName}>{props.news.by}</span> {transformContentDate(props.news.time)}
 
             </Card.Header>
             <Card.Body className={classes.newsTitleWrap}>
@@ -23,7 +23,7 @@ let CurrentNews = (props) => {
                     {/* <a>Read in source</a> */}
 
                     <a href={props.news.url} className={classes.linkDecoration} target="_blank">Read in source</a>
-<div/>
+                    <div />
                     <Navbar.Brand href="/" className={classes.linkDecoration}>Back to main page</Navbar.Brand>
 
                 </Card.Text>

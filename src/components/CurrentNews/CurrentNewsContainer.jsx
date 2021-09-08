@@ -16,13 +16,10 @@ class CurrentNewsContainer extends React.Component {
 
     render() {
         //debugger;
-        
         return (<>
-        {this.props.isFetching ? <Preloader /> : null}
-        <CurrentNews news={this.props.currentNews}/>
 
-
-        
+            {this.props.isFetching ? <Preloader /> : null}
+            <CurrentNews news={this.props.currentNews} />
         </>)
     }
 }
@@ -30,7 +27,6 @@ class CurrentNewsContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         currentNews: state.currentNewsPage.currentNews,
-        //parentComments: state.currentNewsPage.parentComments,
         isFetching: state.currentNewsPage.isFetching,
     }
 }
@@ -39,6 +35,6 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps,
     {
-         getCurrentNews,
+        getCurrentNews,
     }
 )(CurrentNewsContainer);

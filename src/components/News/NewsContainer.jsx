@@ -5,44 +5,37 @@ import { getNews, getTimeout } from './../../redux/news-reducer';
 // import Preloader from './../common/Preloader';
 import Preloader from './../common/Preloader';
 
+// let updatesChecking = null;
+
 class NewsContainer extends React.Component {
 
     componentDidMount() {
         this.props.getNews();
-        setInterval(() => getTimeout(this.props.timer - 1), 1000);
-        //setTimeout(() => getTimeout(this.props.timer - 1), 1000);
+
+        // this.updatesChecking = setInterval(() => this.props.getNews(), 10000);
+    }
+
+    componentWillUnmount() {
+        //this.props.getNews();
+        // clearInterval(this.updatesChecking);
+        //    let checkUpdates =  setInterval(() => this.props.getNews(), 10000);
     }
 
     render() {
-        //debugger;
-        //let timer = this.props.timer;
-        //debugger;
-        if (this.props.timer > 0) {
-            //    timer = setTimeout(() => getTimeout(timer - 1), 1000);
-            //setInterval(() => getTimeout(this.props.timer - 1), 1000);
-        } else {
-            getTimeout(59);
-            //timer = 59;
-            //handleUpdateComments().then(() => setSeconds(59));
-        }
-
-        if (this.props.timer > 0) {
-            //    timer = setTimeout(() => getTimeout(timer - 1), 1000);
-            //setTimeout(() => getTimeout(this.props.timer - 1), 1000);
-        } else {
-            getTimeout(59);
-            //timer = 59;
-            //handleUpdateComments().then(() => setSeconds(59));
-        }
-
-
-
-
 
         return (<>
-            {this.props.isFetching ? <Preloader /> : null}
 
-            <div>{this.props.timer}</div>
+            <button disabled={this.props.isFetching} onClick={() => {
+                // props.follow(u.id);
+                this.props.getNews();
+            }}>
+                {(this.props.isFetching) ?
+                    "Updating..." : "Update news page"}
+
+
+            </button>
+
+            {/* {this.props.isFetching ? <Preloader /> : null} */}
 
             <News news={this.props.news} />
 

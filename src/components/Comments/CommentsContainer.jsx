@@ -5,6 +5,9 @@ import Comments from "./Comments";
 import { getNestedComments, getComments } from '../../redux/comments-reducer';
 // import Preloader from './../common/Preloader';
 import Preloader from '../common/Preloader';
+import { Card } from "react-bootstrap";
+
+import classes from './SingleComments.module.css';
 
 class CommentsContainer extends React.Component {
 
@@ -15,27 +18,46 @@ class CommentsContainer extends React.Component {
     }
 
 
-    render () {
+    render() {
 
-        //getComments(this.props.parentComments);   
-       
         return (<>
+
+            <button disabled={this.props.isFetching} onClick={() => {
+                this.props.getComments(this.props.props.match.params.newsId);
+            }}>Update comments</button>
+
+
             {this.props.isFetching ? <Preloader /> : null}
+
+
+            {(this.props.currentCommentsBranch.length === 0) &&
+
+
+                <div className={classes.commentsWrapper}>
+                    <Card className="text-right">
+                        <Card.Body className={classes.commentTitleWrap}>
+
+                            <Card.Title className={classes.commentTitle}>
+                                No comments yet
+                            </Card.Title>
+                        </Card.Body>
+                    </Card>
+                </div>
+
+            }
 
             {this.props.currentCommentsBranch.map(comment => {
 
-            // debugger;    
-                return (<Comments comments={comment} key={comment} 
-                    //getComments={this.props.getComments}
+                // debugger;    
+                return (<Comments comments={comment} key={comment}
                     getNestedComments={this.props.getNestedComments}
                     openNestedComments={this.props.openNestedComments.filter(el => {
-                       // debugger;
-                        return el.parentId === comment.id})}
-                        //return el.nestComment.id === comment.id})}
-                    />
-                    
-                    
-                    )
+                        return el.parentId === comment.id
+                    })}
+                />
+
+
+                )
             })}
 
         </>)
