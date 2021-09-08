@@ -2,7 +2,6 @@ export function transformContentDate(contentDate) {
 
     const currentTime = new Date();
     const contentTime = new Date(contentDate * 1000);
-
     const timeDifference = currentTime - contentTime;
 
     if (timeDifference < 60 * 1000) {

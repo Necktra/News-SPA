@@ -2,46 +2,43 @@
     padding: 5px;
     font-size: 5pt;
     max-width: 1320px;
-  }
+}
 
-  .commentTitle {
+.commentTitle {
     padding: 5px;
     font-size: medium;
     background-color: rgb(173, 173, 173);
     max-width: 1320px;
-  }
+}
 
-  .newsCreatorName {
-    color:black;
+.newsCreatorName {
+    color: black;
     font-weight: bold;
     font-size: large;
-  }
+}
 
-  .mainWrapper {
-    margin: 15px  auto;
-     max-width: 1320px;
-     border: 2px solid black;
-  }
+.mainWrapper {
+    margin: 15px auto;
+    max-width: 1320px;
+    border: 2px solid black;
+}
 
-  .btn {
+.btn {
     min-width: 100px;
-    /* border-radius: 5px; */
     text-align: center;
     margin: 0 auto;
     transition-duration: 0.4s;
     font-size: medium;
-  }
-  
-  .btn:hover {
-    background-color: rgb(143, 143, 143); 
+}
+
+.btn:hover {
+    background-color: rgb(143, 143, 143);
     color: white;
-  }
+}
 
-
-  .linkDecoration {
+.linkDecoration {
     text-decoration: none;
     font-size: medium;
-    /* color: red; */
 }
 
 .linkDecoration:hover::after {

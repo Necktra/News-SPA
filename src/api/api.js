@@ -8,47 +8,47 @@ export const newsAPI = {
     getNews() {
         return instance.get(`newstories.json?`).then(response => {
             let promises = [];
+
             for (let i = 0; i < 100; i++) {
                 promises.push(instance.get(`item/${response.data[i]}.json?`))
             }
-            return Promise.all(promises)
-        }).then(responses => {
-            //debugger;
-           return responses.map(news => {return news.data});
-            //debugger;
-            //return responses;
-        })
 
+            return Promise.all(promises)
+
+        }).then(responses => {
+            return responses.map(news => {
+                return news.data
+            });
+        })
     },
 
     getCurrentNewsInfo(id) {
         return instance.get(`item/${id}.json?`).then(response => {
-            //debugger;
             return response.data;
         });
     },
 
     getCommentInfo(id) {
-        //debugger;
         return instance.get(`item/${id}.json?`).then(response => {
-            //debugger;
-if (!response.data.kids){return[]}
+
+            if (!response.data.kids) {
+                return []
+            }
+
             let promises = [];
+
             for (let i = 0; i < response.data.kids.length; i++) {
                 promises.push(instance.get(`item/${response.data.kids[i]}.json?`))
             }
+
             return Promise.all(promises)
 
-
-            
         }).then(responses => {
-            //debugger;
 
-          // return responses.map(news => {return news.data});
-          return responses.map(comments => {return comments.data});
-//return responses;
-            //debugger;
-            //return responses;
+            return responses.map(comments => {
+                return comments.data
+            });
+
         });
     }
 

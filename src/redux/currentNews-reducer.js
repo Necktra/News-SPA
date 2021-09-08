@@ -3,74 +3,49 @@ import {
 } from "../api/api";
 
 const SET_CURRENT_NEWS = 'SET_CURRENT_NEWS';
-//const SET_COMMENT_INFO = 'SET_COMMENT_INFO';
 const TOGGLE_IS_FETCHING_CURRENT_NEWS = 'TOGGLE_IS_FETCHING_CURRENT_NEWS';
 
 let initialState = {
-    currentNews: {},
-    //parentComments: [],
-    //currentCommentsBranch: [],
+  currentNews: {},
+  isFetching: false,
+};
 
-    // news: [],
-    // pageSize: 10,
-    // totalUsersCount: 0,
-    // currentPage: 1,
-    isFetching: false,
-  };
 
-  
-  const currentNewsReducer = (state = initialState, action) => {
-    switch (action.type) {
+const currentNewsReducer = (state = initialState, action) => {
+  switch (action.type) {
 
-      case SET_CURRENT_NEWS:
+    case SET_CURRENT_NEWS:
+      return {
+        ...state, currentNews: action.data,
+      }
+
+      case TOGGLE_IS_FETCHING_CURRENT_NEWS:
         return {
-          ...state, currentNews: action.data,
-          // parentComments: [...action.data.kids]
+          ...state, isFetching: action.isFetching
         }
-
-        // case SET_COMMENT_INFO:
-        //   //debugger;
-        //   return {
-        //     ...state, parentComments: [...action.data.kids]
-        //   }
-
-        case TOGGLE_IS_FETCHING_CURRENT_NEWS:
-          return {
-            ...state, isFetching: action.isFetching
-          }
         default:
           return state;
-    }
   }
+}
 
+export const setCurrentNews = (data) => ({
+  type: SET_CURRENT_NEWS,
+  data
+});
 
-  export const setCurrentNews = (data) => ({
-    type: SET_CURRENT_NEWS,
-    data
-  });
+export const toggleIsFetching = (isFetching) => ({
+  type: TOGGLE_IS_FETCHING_CURRENT_NEWS,
+  isFetching
+});
 
-  // export const setCommentInfo = (data) => ({
-  //   type: SET_COMMENT_INFO,
-  //   data
-  // });
+export const getCurrentNews = (id) => {
+  return (dispatch) => {
+    dispatch(toggleIsFetching(true));
+    newsAPI.getCurrentNewsInfo(id).then(data => {
+      dispatch(setCurrentNews(data));
+      dispatch(toggleIsFetching(false));
+    })
+  }
+};
 
-  export const toggleIsFetching = (isFetching) => ({
-    type: TOGGLE_IS_FETCHING_CURRENT_NEWS,
-    isFetching
-  });
-
-  export const getCurrentNews = (id) => {
-   // debugger;
-    return (dispatch) => {
-    //debugger;  
-      dispatch(toggleIsFetching(true));
-      newsAPI.getCurrentNewsInfo(id).then(data => {
-        //debugger;
-        dispatch(setCurrentNews(data));
-        //dispatch(setCommentInfo(data));
-        dispatch(toggleIsFetching(false));
-      })
-    }
-  };
-
-  export default currentNewsReducer;
+export default currentNewsReducer;
