@@ -5,7 +5,7 @@ import classes from './Comments.module.css';
 import { transformContentDate } from "../../services/transformContentDate";
 
 let Comments = (props) => {
-    // debugger;
+    //  debugger;
     return <div className={classes.commentsWrapper}>
         <Card className="text-right">
 
@@ -27,7 +27,7 @@ let Comments = (props) => {
                     <button className={classes.btn} idbtn={props.comments.id} onClick={(e) => {
                         e.target.style.opacity = 0;
                         props.getNestedComments(props.comments.id);
-                    }}>Show replies</button>
+                    }}>Show {props.comments.kids.length} replies</button>
                 }
 
                 {props.openNestedComments.map(el => {
