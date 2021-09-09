@@ -25,7 +25,8 @@ let Comments = (props) => {
                 <div dangerouslySetInnerHTML={{ __html: props.comments.text }} />
                 {props.comments.kids &&
                     <button className={classes.btn} idbtn={props.comments.id} onClick={(e) => {
-                        e.target.style.opacity = 0;
+                        // e.target.style.opacity = 0;
+                        e.target.style.display = "none";
                         props.getNestedComments(props.comments.id);
                     }}>Show {props.comments.kids.length} replies</button>
                 }
