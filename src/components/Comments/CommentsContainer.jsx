@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Comments from "./Comments";
 import { getNestedComments, getComments } from '../../redux/comments-reducer';
 import { Card } from "react-bootstrap";
-import classes from './SingleComments.module.css';
+import classes from './Comments.module.css';
 
 class CommentsContainer extends React.Component {
 

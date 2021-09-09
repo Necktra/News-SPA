@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import SingleComments from "./Comments";
+import Comments from "./Comments";
 import { getNestedComments } from '../../redux/comments-reducer';
 
 class SingleCommentsContainer extends React.Component {
 
     render() {
-        return <SingleComments comments={this.props.comment} key={this.props.comment}
+        return <Comments comments={this.props.comment} key={this.props.comment}
             getNestedComments={this.props.getNestedComments}
             nestIsFetching={this.props.nestIsFetching}
             openNestedComments={this.props.openNestedComments.filter(el => {

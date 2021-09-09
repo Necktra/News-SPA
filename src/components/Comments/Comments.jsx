@@ -1,11 +1,11 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import SingleCommentsContainer from "./SingleCommentsContainer";
-import classes from './SingleComments.module.css';
+import classes from './Comments.module.css';
 import { transformContentDate } from "../../services/transformContentDate";
 
 let Comments = (props) => {
-
+    // debugger;
     return <div className={classes.commentsWrapper}>
         <Card className="text-right">
 
@@ -24,10 +24,10 @@ let Comments = (props) => {
             <Card.Footer className="text-muted">
                 <div dangerouslySetInnerHTML={{ __html: props.comments.text }} />
                 {props.comments.kids &&
-                    <button className={classes.btn} disabled={props.openNestedComments.some(id => { return (id.parentId === props.comments.id) }) || props.nestIsFetching}
-                        idbtn={props.comments.id} onClick={() => {
-                            props.getNestedComments(props.comments.id);
-                        }}>Show replies</button>
+                    <button className={classes.btn} idbtn={props.comments.id} onClick={(e) => {
+                        e.target.style.opacity = 0;
+                        props.getNestedComments(props.comments.id);
+                    }}>Show replies</button>
                 }
 
                 {props.openNestedComments.map(el => {

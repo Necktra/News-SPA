@@ -7,7 +7,7 @@ import { ReactComponent as RaitingImg } from './../../assets/images/raiting.svg'
 let CurrentNews = (props) => {
     return (<Card className={classes.mainWrapper}>
         <Card.Header className={classes.commentTitle}>
-            {props.news.score} <RaitingImg className={classes.raitingImg}/> points by <span className={classes.newsCreatorName}>{props.news.by}</span> {transformContentDate(props.news.time)}
+            {props.news.score} <RaitingImg className={classes.raitingImg}/> <span className={classes.newsCreatorName}>{props.news.by}</span> {transformContentDate(props.news.time)}
         </Card.Header>
         <Card.Body className={classes.newsTitleWrap}>
             <Card.Title>{props.news.title}</Card.Title>
