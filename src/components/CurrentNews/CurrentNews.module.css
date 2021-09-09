@@ -54,3 +54,9 @@
 .newsText {
     font-size: medium;
 }
+
+.raitingImg {
+    width: 20px;
+    fill: rebeccapurple;
+    transition-duration: 0.3s;
+}

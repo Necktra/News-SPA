@@ -42,3 +42,13 @@
     border-radius: 4px;
     transition-duration: 0.3s;
 }
+
+.raitingImg {
+    width: 20px;
+    fill: rebeccapurple;
+    transition-duration: 0.3s;
+}
+
+.mainWrapper:hover .raitingImg {
+    fill: rgb(56, 146, 53);
+}
