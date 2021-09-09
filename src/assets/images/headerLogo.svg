@@ -1,0 +1,15 @@
+<svg width="201" height="91" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with SVG Editor - http://github.com/mzalive/SVG Editor/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="93" width="203" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text transform="matrix(1.1116, 0, 0, 1.03987, -53.6799, -1.97022)" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Times New Roman', Times, serif" font-size="116" id="svg_1" y="86.602099" x="49.591927" stroke-width="0" stroke="#000" fill="#7f00ff">HN</text>
+  <text font-weight="bold" transform="rotate(-20, 99.3253, 43.4437) matrix(1.58296, 0, 0, 1.59162, -104.375, -92.0973)" xml:space="preserve" text-anchor="start" font-family="'Times New Roman', Times, serif" font-size="22" id="svg_3" y="92.404011" x="66.066442" stroke-width="0" stroke="#000" fill="#ffffff">Hacker News</text>
+ </g>
+</svg>
